@@ -1,1 +1,4 @@
 # AME494598Fall2023
+
+Name: Trisha Ashok
+ASU Id: 1226289911
