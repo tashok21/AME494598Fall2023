@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<script src='asyncReq.js'></script>
+<script>
+function updateData()
+{
+  loadURL("./getData", function(data){
+    document.getElementById("results").innerHTML = data;
+  })
+}
+function start()
+{
+  setInterval("updateData()", 300);
+}
+
+<style>
+
+  li {
+    margin-bottom: 10px;
+  }
+  </style>
+
+</script>
+</head>
+<body onload='start()'>
+<h1 style="font-size: 24px; color: #ed1322; text-align: center"> Temperature/Humidity</h1>
+<!-- <style>
+    h2:hover {
+      color: #8cc620; /* Change the text color to red on hover */
+      /* You can add more styles here for the hover effect */
+    } -->
+<div id='results'> </div>
+<div id="tutorial"></div>
+<h2 style="font-size: 24px; text-align: center; text-decoration: underline;"> Connecting the temperature sensor with the cloud</h2>
+   <h2>The Role of Arduino</h2>
+   <ol>
+   <li>Open the Arduino IDE</li>
+   <code >DHT11Default.ino</code>
+   <li >Add SimpleDHT library</li>
+   <code >#include SimpleDHT.h</code>
+   <li >Edit the SSid and password</li>
+   <li >Edit the Domain name with the IP address connected with the EC2 server</li>
+   <code >const char* serverName = "http://44.202.80.10:8080/sendData";</code>
+   <li >Compile and check the serial monitor</li>
+   <img  src="Temp.png" alt="Temp image" width="800" height="350">
+</ol>
+   <h2>The Role of AWS- EC2 server</h2>
+   <ol>
+    
+    <li>Start the lab to work in EC2 server</li>
+    <img src="startlab.jpg" alt="The front page" width="800" height="350">
+    <li>Open EC2</li>
+    <li>Launch the instance</li>
+    <img src="instance.jpg" alt="Instance img" width="800" height="350">
+    <li>To launch an Instance</li>
+    <ol>
+      <li>Select the Operation system- Ubuntu-20.04 LTS version</li>
+      <li>Proceed without a key pair</li>
+      <li>Configure the storage to 28Gb</li>
+      <li>Add the general purpose SSD- gp2</li>
+      <li>Launch the instance</li>
+    </ol>
+    <li> Click- Connect to EC2 instance Connect</li>
+    <li>Create the instance</li>
+    <li >Add the curl command to the server</li>
+    <code style="margin-bottom: 15px ; color: #d61842;">curl -s https://gist.githubusercontent.com/tejaswigowda/f289e9bff13d152876e8d4b3281142f8/raw/df37df2e16a3166e686357a045751a7c18bbeebe/installNodeMongoUbuntu16.04.sh  | bash</code>
+    <img src="curl.jpg" alt="The curl page" width="800" height="350">
+    <li>Give the following commands on EC2 server</li>
+    <ol>
+      <li>npm install -g n</li>
+      <li> sudo n latest</li>
+      <li>sudo npm install -g http-server</li>
+      <li>git clone to your own repository</li>
+      <code>https://github.com/tashok21/AME494598Fall2023.git</code>
+    </ol> 
+    <li>Portmap to map the port number 1234 to 8080</li>
+    <li>Give the following commands to do portmap</li>
+    <ol>
+      <li >Go to the directory: ame498-598Fall2023/basicServers/staticHosting$</li>
+      <li>sh portmap.sh</li>
+        
+    </ol>
+    <li>Edit the Security</li>
+    <ol>
+      <li>Add Port number- 8080</li>
+      <li>Add Port number- 80</li>
+      <li>Add Port number- 1234</li>
+    </ol>
+    <img src="Security.jpg" alt="The front page"  width="800" height="350">
+
+    
+   </ol>
+</body>
+</html>
+
+
+
