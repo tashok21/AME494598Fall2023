@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1097989199804",
+    "project_id": "ame598notifications",
+    "storage_bucket": "ame598notifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097989199804:android:34d7c287e1bdb64619fdb9",
+        "android_client_info": {
+          "package_name": "com.ame598.iotapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfZlvmn2NNb60deZGkWvbQOf60qoJYCqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
